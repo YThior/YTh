@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->usingnedBigInteger('id_role');
+            $table->foreign('id_user')->references('id')->on('role') ;
             //
         });
     }

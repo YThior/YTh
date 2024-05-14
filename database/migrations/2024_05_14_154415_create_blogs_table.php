@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->string('image');
+            $table->longText('contenu');
             $table->timestamps();
+            $table->usingnedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('categories') ;
+
+            $table->usingnedBigInteger('id_role');
+            $table->foreign('id_role')->references('id')->on('role') ;
         });
     }
 
